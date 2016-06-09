@@ -1,0 +1,16 @@
+ru:
+  item:
+    weight: 'Вес'
+  
+  h1:
+    form: 'Создать новый товар'
+
+  activerecord:
+    models:
+      item: 'Товар'
+    attributes:
+      item:
+        price: 'Цена'
+        name: 'Имя'
+        description: 'Описание'
+        weight: 'Вес'  

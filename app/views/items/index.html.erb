@@ -1,0 +1,38 @@
+<!-- если не писать равно, то значит 
+мы не выводим содержимое этого руби кода
+в браузер -->
+<!-- method link_to название ссылки, путь,
+	сгенерированный рельсой -->
+
+<h1>Items</h1>
+
+<% if @items.empty? %>
+	<b>No items in store</b>
+<% else %>
+<table class="items">
+	<tr>
+		<th>item id</th>
+		<th>Name</th>
+		<th>Created_at</th>
+		<th>Price</th>
+		<th></th>
+		<th></th>
+	</tr>
+
+	<% @items.each do |i| %>
+
+		<tr data-item_id="<%= i.id %>">
+			<td><%= i.id %></td>
+			<td><%= link_to i.name, item_path(i) %></td>
+			<td><%= i.created_at %></td>
+			<td><%= i.price %> руб.</td>
+			<td><span class="deleteAction"> Удалить </span></td>
+			<td>Рейтинг: <%= i.votes_count %>, <%= link_to "+", upvote_item_path(i) %></td>
+		</tr>
+
+	<% end %>	
+
+</table>
+<% end %>
+
+<%= render "shared/email" %>	
